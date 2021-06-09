@@ -1,8 +1,128 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-a {
-  color: #00B7FF;
+iframe {
+  width: 80%;
+}
+
+body {
+  width: 100%;
+  /* background-image: url("giphy2.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; */
+}
+
+header {
+  padding: 2rem;
+  margin-bottom: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+h1 {
+  text-align: center;
+  font-size: 4.6vw;
+}
+
+h2 {
+  margin: 0.5rem 0;
+  text-align: center;
+  font-size: 3.6vw;
+}
+
+.update-date {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.milestone {
+  padding: 5px 20px;
+  margin-top: 5px;
+  border-radius: 5px;
+  font-weight: bolder;
+  font-size: 1.4em;
+}
+
+#milestone10k{
+  background-color: #fc6500;
+  font-size: 1.1em;
+}
+
+#milestone9k{
+  background-color: #ff8d12;
+  font-size: 1.0em;
+}
+
+
+#milestone8k {
+  background-color: #ff9c32;
+  font-size: 0.8em;
+}
+
+#milestone7k {
+  background-color: #ffae2b;
+  font-size: 0.7em;
+}
+
+#milestone6k {
+  background-color: #f4b700;
+  font-size: 0.6em;
+}
+
+#milestone5k {
+  background-color: #f4b700;
+  font-size: 0.6em;
+}
+
+#milestone4k {
+  background-color: #f4b700;
+  font-size: 0.6em;
+}
+
+.blob {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+	background: #fb5012;
+	border-radius: 50%;
+	margin: 10px;
+	height: 250px;
+	width: 250px;
+
+	box-shadow: 0 0 0 0 #fb5012;
+	transform: scale(1);
+	animation: pulse 2s infinite;
+}
+
+.blob p {
+  color: white;
+  font-size: 3.5rem;
+  z-index: 100;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 #fdcc82;
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 25px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
 }
