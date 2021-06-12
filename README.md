@@ -15,6 +15,7 @@ Currently, this app will count to the next 1000-member milestone. For example, i
    GUILD_ID=your_server_id_here
    ```
 5. (Production only) Set your node environment to production so that the Pug templates are not compiled on every request
+6. Start the application with the command `npm start`
 
 ---
 
