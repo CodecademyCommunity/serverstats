@@ -6,7 +6,7 @@ exports.fetchGuildData = async function(url, guildID, token, with_counts = true)
   const serverData = await fetch(urlToFetch, {
     method: 'GET',
     headers: {
-      'Content-type': 'application/json',
+      'Accept': 'application/json',
       'Authorization': `Bot ${token}`
     }
   });
