@@ -53,6 +53,7 @@ h2 {
 }
 
 #milestone10k{
+  margin-top: 2rem;
   background-color: #fc6500;
   font-size: 1.1em;
 }
@@ -96,8 +97,8 @@ h2 {
 	background: #fb5012;
 	border-radius: 50%;
 	margin: 10px;
-	height: 250px;
-	width: 250px;
+	min-height: 25rem;
+	min-width: 25rem;
 
 	box-shadow: 0 0 0 0 #fb5012;
 	transform: scale(1);
