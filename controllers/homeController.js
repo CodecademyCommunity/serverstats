@@ -1,4 +1,4 @@
-require('dotenv').config();
+const { calculateGoal } = require('../public/javascripts/calculateGoal');
 const { fetchGuildData } = require('../helpers/guild');
 const endpoint = require('../helpers/urls').guild;
 
@@ -9,6 +9,7 @@ const GUILD_ID = process.env.GUILD_ID;
 exports.index = async function(req, res, next) {
   const data = await fetchGuildData(endpoint, GUILD_ID, TOKEN);
   const memberCount = data['approximate_member_count'];
+  const goal = calculateGoal(memberCount);
 
-  res.render('index', { memberCount: memberCount });
+  res.render('index', { memberCount: memberCount, goal: goal });
 };
