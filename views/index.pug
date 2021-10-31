@@ -3,11 +3,10 @@ extends layout
 block content
   header
     h1= title.toUpperCase()
-    h2 Count to #{Math.ceil(memberCount / 1000) * 1000}
-
+    h2#goal= `Count to ${goal}`
   main 
     .blob 
-      p= memberCount
+      p#members= memberCount
     p.milestone#milestone10k Mar 25: 10,000
     p.milestone#milestone9k Mar 18: 9,000
     p.milestone#milestone8k Mar 13: 8,000

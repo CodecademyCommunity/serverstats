@@ -10,10 +10,12 @@ iframe {
 
 body {
   width: 100%;
-  /* background-image: url("giphy2.gif");
+}
+
+body.party {
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; */
+  background-size: cover;
 }
 
 header {

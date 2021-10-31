@@ -3,6 +3,14 @@ html
   head
     - const title = "Codecademy Discord Server"
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="/stylesheets/style.css")
   body
     block content
+    script(src="/javascripts/calculateGoal.js")
+    script(src="/javascripts/script.js")
+    script(src="/socket.io/socket.io.js")
+    script.
+      var socket = io();
+      socket.on('refresh data', function(msg) {
+        updateData(msg);
+      });
