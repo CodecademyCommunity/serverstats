@@ -4,9 +4,18 @@
  * Module dependencies.
  */
 
+require('dotenv').config();
 var app = require('../app');
+var cron = require('node-cron');
 var debug = require('debug')('serverstats:server');
 var http = require('http');
+
+const { Server } = require("socket.io");
+const { fetchGuildData } = require('../helpers/guild');
+const endpoint = require('../helpers/urls').guild;
+
+const TOKEN = process.env.TOKEN;
+const GUILD_ID = process.env.GUILD_ID;
 
 /**
  * Get port from environment and store in Express.
@@ -16,10 +25,11 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Create HTTP server and socket server.
  */
 
 var server = http.createServer(app);
+const io = new Server(server);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -28,6 +38,22 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+/**
+ * Listen for new socket connections and log them.
+ */
+
+ io.on('connection', (socket) => {  console.log('a user connected');});
+
+/**
+ * Start cron job to fetch guild data every minute
+ */
+
+cron.schedule('* * * * *', async () => {
+  const data = await fetchGuildData(endpoint, GUILD_ID, TOKEN);
+  const memberCount = data['approximate_member_count'];
+  io.emit('refresh data', memberCount);
+});
 
 /**
  * Normalize a port into a number, string, or false.
